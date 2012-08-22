@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<foglight-config version="1.0.3.0" exported-on="2012-08-22T12:46:23.141Z">
+ <persistable-script name="getTwitterAccessToken">
+        <signature>
+            <return type="Object">
+                <description><![CDATA[The Twitter4J Access Token]]></description>
+            </return>
+        </signature>
+        <documentation>
+            <description><![CDATA[Will return the Twitter Acces Token for the stored OAuth Authentification!]]></description>
+        </documentation>
+        <annotation name="return_type">
+            <value><![CDATA[Object]]></value>
+        </annotation>
+        <body><![CDATA[
+		import twitter4j.*
+import twitter4j.api.*
+import twitter4j.auth.*
+import twitter4j.conf.* 
+import twitter4j.json.* 
+import twitter4j.management.* 
+import twitter4j.media.* 
+import twitter4j.util.* 
+
+
+def token = registry("Twitter.ClientToken")
+def key = registry("Twitter.ClientKey")
+
+if (key == null || token == null) return null
+else return new AccessToken(token,key)
+
+		]]></body>
+    </persistable-script>
+    <persistable-script name="getTwitterClient">
+        <signature>
+            <return type="Object">
+                <description><![CDATA[The Twitter4J Authenticated Client]]></description>
+            </return>
+        </signature>
+        <documentation>
+            <description><![CDATA[Will return the Twitter Acces Token for the stored OAuth Authentification!]]></description>
+        </documentation>
+        <annotation name="return_type">
+            <value><![CDATA[Object]]></value>
+        </annotation>
+        <body><![CDATA[
+		import twitter4j.*
+import twitter4j.api.*
+import twitter4j.auth.*
+import twitter4j.conf.* 
+import twitter4j.json.* 
+import twitter4j.management.* 
+import twitter4j.media.* 
+import twitter4j.util.* 
+
+def token = getTwitterAccessToken()
+assert (token != null)
+
+TwitterFactory factory = new TwitterFactory();
+Twitter twitter = factory.getInstance();
+    twitter.setOAuthConsumer(registry("Twitter.AppKey"),registry("Twitter.AppSecret"));
+    twitter.setOAuthAccessToken(token);
+
+return twitter;
+		]]></body>
+    </persistable-script>
+</foglight-config>

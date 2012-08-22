@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<types xmlns="urn:quest-com:wcf-types-3-0">
+    <type name="User" extends="wcf:WritableDataObject">
+        <set annotation="reloadable">false</set>
+        <property name="id" type="wcf:Long"/>
+        <property name="screenName" type="wcf:Object"/>
+        <property name="name" type="wcf:Object"/>
+    </type>
+</types>

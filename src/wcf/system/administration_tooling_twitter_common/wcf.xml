@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3-027" display-name="common" last-entity-id="3" parent="system:administration_tooling_twitter">
+    <script-function type="groovy" id="1" display-name="getFollowers" ts="1345642875725" public="false" output-type="administration_tooling_twitter_common:User" output-list="true" cache-results="true">
+        <uuid>f2d15475-89d6-4497-85a2-a8d8c8ee1159</uuid>
+    </script-function>
+    <script-function type="groovy" id="2" display-name="getFollowing" ts="1345642996785" public="false" output-type="administration_tooling_twitter_common:User" output-list="true" cache-results="true">
+        <uuid>a0763295-a667-4181-8f06-6dc233edeb3c</uuid>
+    </script-function>
+    <script-function type="groovy" id="3" display-name="addFriend" ts="1345645696722" public="false" output-type="wcf:Object" cache-results="true">
+        <uuid>974a1b3e-10ca-4646-b3ae-c10a32bd352e</uuid>
+        <inputs>
+            <input name="friendID" type-name="wcf:Long"/>
+        </inputs>
+    </script-function>
+</module>

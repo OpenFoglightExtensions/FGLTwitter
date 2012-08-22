@@ -76,7 +76,7 @@
 						<jarcomponent name="twitterAPI" ispublic="true" federateDeployType="ALWAYS_DEPLOY">
 											<fileset dir="lib/runtime" includes="twitter4j*.jar" />
 						</jarcomponent>
-						<monitoringpolicy name="Scripts" version="${cartridge.version}" file="${basedir}/res/scripts.xml" federateDeployType="ALWAYS_DEPLOY"/>
+						<monitoringpolicy name="Scripts" version="${cartridge.version}" file="${basedir}/src/scripts.xml" federateDeployType="ALWAYS_DEPLOY"/>
 								
 					</cartridge>
 				</car>
