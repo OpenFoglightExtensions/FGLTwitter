@@ -69,17 +69,18 @@
 		
 		<ant antfile="${basedir}/src/build/build_content.xml" inheritall="true" target="_car">
 			</ant>
-		
-		<!--
-		 Please use this section to add static overwrites and additions to the Cartridge.
-		 Please DO NOT change build_content.xml because this will overwritten on the next Ressource Export
 		 
 		<car destdir="${dist.dir}" final="false" append="true">
 					<cartridge name="${cartridge.name}" version="${cartridge.version}" buildId="${build.id}" author="${cartridge.author}" foglightversion="5.0" classloadingstyle="local_first" type="user">
 		
+						<jarcomponent name="twitterAPI" ispublic="true" federateDeployType="ALWAYS_DEPLOY">
+											<fileset dir="lib/runtime" includes="twitter4j*.jar" />
+						</jarcomponent>
+						<monitoringpolicy name="Scripts" version="${cartridge.version}" file="${basedir}/res/scripts.xml" federateDeployType="ALWAYS_DEPLOY"/>
+								
 					</cartridge>
 				</car>
-		-->
+		
 	</target>
 	
 	<target name="clean" description="Clean before rebuild">

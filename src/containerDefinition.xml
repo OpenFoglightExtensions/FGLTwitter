@@ -1,0 +1,74 @@
+<topologyExport version='1.0.0'>
+  <objectInstance type='IDE_CAR_ExportContainer' id='0'>
+    <stringProperty name='name' xml:space='preserve'>FGLTwitterIntegration</stringProperty>
+    <stringProperty name='description' xml:space='preserve'>A BAsic Twitter integration using the Twitter API Calls directly</stringProperty>
+    <objectProperty name='definitionGroups'>
+      <objectInstance type='IDE_ExpGroup_CI' id='1'>
+        <stringProperty name='name' xml:space='preserve'>registryEntries</stringProperty>
+        <objectProperty name='container'>
+          <objectReference refId='0' />
+        </objectProperty>
+        <objectProperty name='includes'>
+          <objectInstance type='IDE_CI_RegistryValue' id='2'>
+            <stringProperty name='ci_id' xml:space='preserve'>/registry/Twitter.AppKey</stringProperty>
+            <objectProperty name='parent'>
+              <objectReference refId='1' />
+            </objectProperty>
+            <stringProperty name='name' xml:space='preserve'>Twitter.AppKey</stringProperty>
+          </objectInstance>
+          <objectInstance type='IDE_CI_RegistryValue' id='3'>
+            <stringProperty name='ci_id' xml:space='preserve'>/registry/Twitter.AppSecret</stringProperty>
+            <objectProperty name='parent'>
+              <objectReference refId='1' />
+            </objectProperty>
+            <stringProperty name='name' xml:space='preserve'>Twitter.AppSecret</stringProperty>
+          </objectInstance>
+          <objectInstance type='IDE_CI_RegistryValue' id='4'>
+            <stringProperty name='ci_id' xml:space='preserve'>/registry/Twitter.ClientKey</stringProperty>
+            <objectProperty name='parent'>
+              <objectReference refId='1' />
+            </objectProperty>
+            <stringProperty name='name' xml:space='preserve'>Twitter.ClientKey</stringProperty>
+          </objectInstance>
+          <objectInstance type='IDE_CI_RegistryValue' id='5'>
+            <stringProperty name='ci_id' xml:space='preserve'>/registry/Twitter.ScreenName</stringProperty>
+            <objectProperty name='parent'>
+              <objectReference refId='1' />
+            </objectProperty>
+            <stringProperty name='name' xml:space='preserve'>Twitter.ScreenName</stringProperty>
+          </objectInstance>
+          <objectInstance type='IDE_CI_RegistryValue' id='6'>
+            <stringProperty name='ci_id' xml:space='preserve'>/registry/Twitter.ClientToken</stringProperty>
+            <objectProperty name='parent'>
+              <objectReference refId='1' />
+            </objectProperty>
+            <stringProperty name='name' xml:space='preserve'>Twitter.ClientToken</stringProperty>
+          </objectInstance>
+        </objectProperty>
+      </objectInstance>
+      <objectInstance type='IDE_ExpGroup_WCF' id='7'>
+        <stringProperty name='name' xml:space='preserve'>wcf</stringProperty>
+        <objectProperty name='container'>
+          <objectReference refId='0' />
+        </objectProperty>
+        <objectProperty name='includes'>
+          <objectInstance type='IDE_CI_WCFDefinition' id='8'>
+            <stringProperty name='ci_id' xml:space='preserve'>system:administration_tooling_twitter</stringProperty>
+            <objectProperty name='parent'>
+              <objectReference refId='7' />
+            </objectProperty>
+            <stringProperty name='name' xml:space='preserve'>system:administration_tooling_twitter</stringProperty>
+          </objectInstance>
+          <objectInstance type='IDE_CI_WCFDefinition' id='9'>
+            <stringProperty name='ci_id' xml:space='preserve'>system:administration_tooling_twitter_common</stringProperty>
+            <objectProperty name='parent'>
+              <objectReference refId='7' />
+            </objectProperty>
+            <stringProperty name='name' xml:space='preserve'>system:administration_tooling_twitter_common</stringProperty>
+          </objectInstance>
+        </objectProperty>
+      </objectInstance>
+    </objectProperty>
+    <stringProperty name='author' xml:space='preserve'>Stefan.Marx@quest.com</stringProperty>
+  </objectInstance>
+</topologyExport>

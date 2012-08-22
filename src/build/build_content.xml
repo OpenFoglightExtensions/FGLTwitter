@@ -9,7 +9,12 @@
  buildId="${build.id}" author="${cartridge.author}" foglightversion="5.0" type="user">
 				
 
+<monitoringpolicy name="registryEntries" version="${cartridge.version}" file="${basedir}/src/xml/registryEntries.xml" />
 
+				<wcf name="${cartridge.name}_wcf" version="${cartridge.version}">
+					<fileset dir="${basedir}/src" includes="wcf/**/*" />
+				</wcf>
+				
 			</cartridge>
 		</car>
 	</target>

@@ -1,0 +1,652 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3-027" display-name="Twitter" last-entity-id="14" parent="system:administration_tooling" main-view="7">
+    <relevant-role name="Administrator"/>
+    <allowed-role name="Administrator"/>
+    <view id="4" display-name="OAuthStep1" ts="1345630012148" public="false" component="wcf.label">
+        <uuid>de010b06-fe8e-4fec-8985-d6188e26d99e</uuid>
+        <inputs>
+            <entry key="timeRange" data-type="wcf:TimeRange"/>
+        </inputs>
+        <flow/>
+        <config>
+            <property name="label">
+                <rich-text-rv>
+                    <value xml:space="preserve">To use the Twitter Integration you need to authorize this instance with a Twitter Account. We strongly suggest to create one Twitter Account per FMS and don't use that account for anything but Messages from that FMS.
+
+</value>
+                </rich-text-rv>
+            </property>
+        </config>
+    </view>
+    <view id="6" display-name="OAuthWizard" ts="1345633773391" public="false" component="wcf.wizard">
+        <uuid>d0f58f0c-da36-44db-ad3f-cf16aad9e4c0</uuid>
+        <purpose name="dialog"/>
+        <purpose name="menu"/>
+        <purpose name="page"/>
+        <purpose name="pagelet"/>
+        <context>
+            <entry key="oauthContext">
+                <function-rv id="system:administration_tooling_twitter.oAuthStep1"/>
+            </entry>
+        </context>
+        <flow/>
+        <config>
+            <property name="cards">
+                <list-value>
+                    <object>
+                        <property name="id">
+                            <string xml:space="preserve">Step1</string>
+                        </property>
+                        <property name="view">
+                            <view-ref value="system:administration_tooling_twitter.4"/>
+                        </property>
+                    </object>
+                    <object>
+                        <property name="id">
+                            <string xml:space="preserve">2</string>
+                        </property>
+                        <property name="view">
+                            <view-ref value="system:administration_tooling_twitter.9"/>
+                        </property>
+                    </object>
+                    <object>
+                        <property name="id">
+                            <string xml:space="preserve">f</string>
+                        </property>
+                        <property name="view">
+                            <view-ref value="system:administration_tooling_twitter.10"/>
+                        </property>
+                        <property name="finishReaction">
+                            <previous update="context">
+                                <context>
+                                    <entry key="TOKEN">
+                                        <function-rv id="system:administration_tooling_twitter.11">
+                                            <context-rv input-key="oauthContext"/>
+                                            <context-rv input-key="oauthContext" path="oauthPin"/>
+                                        </function-rv>
+                                    </entry>
+                                </context>
+                            </previous>
+                        </property>
+                    </object>
+                </list-value>
+            </property>
+            <property name="showCardSummary">
+                <boolean value="true"/>
+            </property>
+        </config>
+    </view>
+    <composite-view id="7" display-name="TwitterHomepage" ts="1345645247386" public="false" component="wcf.row-layout">
+        <uuid>443ed09a-14ba-4acb-a8cb-58d068517a51</uuid>
+        <purpose name="page"/>
+        <purpose name="pagelet"/>
+        <inputs>
+            <entry key="timeRange" data-type="wcf:TimeRange"/>
+        </inputs>
+        <context>
+            <entry key="taskName">
+                <string xml:space="preserve">configureTwitter</string>
+            </entry>
+        </context>
+        <flow/>
+        <config>
+            <property name="spacing">
+                <integer value="8"/>
+            </property>
+            <property name="allowCollapse">
+                <boolean value="true"/>
+            </property>
+            <property name="sizing">
+                <component-sizing>
+                    <width preferred="10"/>
+                    <height preferred="10"/>
+                </component-sizing>
+            </property>
+            <property name="pageOptions">
+                <object>
+                    <property name="scrollbars">
+                        <enum value="auto"/>
+                    </property>
+                </object>
+            </property>
+            <property name="popupOptions">
+                <object>
+                    <property name="useLegacySizing">
+                        <boolean value="true"/>
+                    </property>
+                </object>
+            </property>
+        </config>
+        <window id="0" view="nested">
+            <size width="45" height="45"/>
+            <config>
+                <property name="hweight">
+                    <integer value="0"/>
+                </property>
+                <property name="vweight">
+                    <integer value="0"/>
+                </property>
+            </config>
+            <view id="nested" display-name="nvLabel" ts="1345643319982" public="false" component="wcf.label">
+                <flow/>
+                <config>
+                    <property name="label">
+                        <icon-rv id="system:wcf_common.DefaultPerspectiveIcon" renderer-id="system:core_commons.62"/>
+                    </property>
+                </config>
+            </view>
+        </window>
+        <window id="1" view="nested">
+            <size/>
+            <config>
+                <property name="column">
+                    <integer value="1"/>
+                </property>
+                <property name="align">
+                    <enum value="stretch"/>
+                </property>
+                <property name="hweight">
+                    <integer value="1"/>
+                </property>
+                <property name="vweight">
+                    <integer value="0"/>
+                </property>
+            </config>
+            <composite-view id="nested" display-name="nvExplanation" ts="1345645222813" public="false" component="wcf.column-layout">
+                <flow/>
+                <config/>
+                <window id="0" view="nested">
+                    <size/>
+                    <config>
+                        <property name="hweight">
+                            <integer value="1"/>
+                        </property>
+                    </config>
+                    <view id="nested" display-name="nvLabel" ts="1345631317788" public="false" component="wcf.label">
+                        <flow/>
+                        <config>
+                            <property name="label">
+                                <string-rv renderer-id="system:core_commons.12">
+                                    <value xml:space="preserve">Please click to change the OAuth Token</value>
+                                </string-rv>
+                            </property>
+                        </config>
+                    </view>
+                </window>
+                <window id="1" view="nested">
+                    <size/>
+                    <config>
+                        <property name="row">
+                            <integer value="1"/>
+                        </property>
+                        <property name="hweight">
+                            <integer value="1"/>
+                        </property>
+                    </config>
+                    <view id="nested" display-name="nvText" ts="1345631644260" public="false" component="wcf.label">
+                        <flow/>
+                        <config>
+                            <property name="label">
+                                <string-rv>
+                                    <value xml:space="preserve">Curren Authentication Token : {0}</value>
+                                    <function-rv id="system:administration_tooling_twitter.8" renderer-id="system:core_commons.64"/>
+                                </string-rv>
+                            </property>
+                        </config>
+                    </view>
+                </window>
+                <window id="2" view="nested">
+                    <size/>
+                    <config>
+                        <property name="row">
+                            <integer value="2"/>
+                        </property>
+                    </config>
+                    <view id="nested" display-name="nvChange" ts="1345631884207" public="false" component="wcf.input.button">
+                        <flow>
+                            <on action="selection">
+                                <popup id="system:administration_tooling_twitter.6" type="modal"/>
+                            </on>
+                        </flow>
+                        <config>
+                            <property name="label">
+                                <string xml:space="preserve">Authenticate Twitter</string>
+                            </property>
+                        </config>
+                    </view>
+                </window>
+                <window id="3" view="nested">
+                    <size/>
+                    <config>
+                        <property name="row">
+                            <integer value="3"/>
+                        </property>
+                    </config>
+                    <view id="nested" display-name="(Nested View 4)" ts="1345645247356" public="false" component="wcf.input.button">
+                        <flow>
+                            <on action="selection">
+                                <popup id="system:administration_tooling_twitter.14" type="temporary"/>
+                            </on>
+                        </flow>
+                        <config>
+                            <property name="label">
+                                <string xml:space="preserve">Test Tweet</string>
+                            </property>
+                        </config>
+                    </view>
+                </window>
+            </composite-view>
+        </window>
+        <window id="2" view="nested">
+            <size/>
+            <config>
+                <property name="row">
+                    <integer value="1"/>
+                </property>
+                <property name="align">
+                    <enum value="stretch"/>
+                </property>
+                <property name="hweight">
+                    <integer value="1"/>
+                </property>
+            </config>
+            <view id="nested" display-name="sep" ts="1345643409256" public="false" component="wcf.separator">
+                <config>
+                    <property name="direction">
+                        <enum value="horizontal"/>
+                    </property>
+                </config>
+            </view>
+        </window>
+        <window id="3" view="system:administration_tooling_twitter.12">
+            <size height="450"/>
+            <config>
+                <property name="row">
+                    <integer value="2"/>
+                </property>
+                <property name="align">
+                    <enum value="stretch"/>
+                </property>
+                <property name="hweight">
+                    <integer value="1"/>
+                </property>
+                <property name="showTitle">
+                    <boolean value="true"/>
+                </property>
+                <property name="showBorder">
+                    <boolean value="true"/>
+                </property>
+            </config>
+        </window>
+    </composite-view>
+    <composite-view id="9" display-name="OAuthStep2" ts="1345637120734" public="false" component="wcf.row-layout">
+        <uuid>cbbfde2d-afc0-4af1-b2f3-dab0c44ffa27</uuid>
+        <inputs>
+            <entry key="timeRange" data-type="wcf:TimeRange"/>
+            <entry key="oauthContext" data-type="administration_tooling_twitter:OauthContext"/>
+        </inputs>
+        <context>
+            <entry key="authURL">
+                <context-rv input-key="oauthContext" path="oauthURL"/>
+            </entry>
+        </context>
+        <flow/>
+        <config/>
+        <window id="0" view="nested">
+            <size/>
+            <config/>
+            <view id="nested" display-name="1)label" ts="1345637119101" public="false" component="wcf.label">
+                <inputs>
+                    <entry key="oauthContext" data-type="administration_tooling_twitter:OauthContext"/>
+                    <entry key="authURL" data-type="wcf:String"/>
+                </inputs>
+                <flow>
+                    <on action="selection">
+                        <external-url href="{url}" new-window="true">
+                            <context>
+                                <entry key="URL">
+                                    <context-rv input-key="oauthContext" path="oauthURL"/>
+                                </entry>
+                            </context>
+                        </external-url>
+                    </on>
+                </flow>
+                <config>
+                    <property name="label">
+                        <rich-text-rv>
+                            <value xml:space="preserve">Please click here to open the Twitter URL in an external Window</value>
+                        </rich-text-rv>
+                    </property>
+                </config>
+            </view>
+        </window>
+        <window id="1" view="nested">
+            <size/>
+            <config>
+                <property name="row">
+                    <integer value="1"/>
+                </property>
+            </config>
+            <view id="nested" display-name="2)Pin" ts="1345632115700" public="false" component="wcf.label">
+                <flow/>
+                <config>
+                    <property name="label">
+                        <string xml:space="preserve">Enter the Pin displayed on the Page</string>
+                    </property>
+                </config>
+            </view>
+        </window>
+        <window id="2" view="nested">
+            <size/>
+            <config>
+                <property name="column">
+                    <integer value="1"/>
+                </property>
+                <property name="row">
+                    <integer value="1"/>
+                </property>
+            </config>
+            <view id="nested" display-name="input" ts="1345632249290" public="false" component="wcf.bean-input.text">
+                <inputs>
+                    <entry key="oauthContext" data-type="administration_tooling_twitter:OauthContext"/>
+                </inputs>
+                <flow/>
+                <config>
+                    <property name="pathToValue">
+                        <string xml:space="preserve">oauthPin</string>
+                    </property>
+                </config>
+            </view>
+        </window>
+    </composite-view>
+    <view id="10" display-name="OAuthStep3" ts="1345632591494" public="false" component="wcf.label">
+        <uuid>fc66ee1b-5575-414e-b2b9-1af5272cbc9a</uuid>
+        <inputs>
+            <entry key="timeRange" data-type="wcf:TimeRange"/>
+            <entry key="oauthContext" data-type="administration_tooling_twitter:OauthContext"/>
+        </inputs>
+        <flow/>
+        <config>
+            <property name="label">
+                <string-rv>
+                    <value xml:space="preserve">Please click &lt;Finish> to authorize the Twitter integration with pin {0}</value>
+                    <context-rv input-key="oauthContext" path="oauthPin">
+                        <on-null>
+                            <string-rv>
+                                <value xml:space="preserve"> n/a </value>
+                            </string-rv>
+                        </on-null>
+                    </context-rv>
+                </string-rv>
+            </property>
+        </config>
+    </view>
+    <composite-view id="12" display-name="FollowerConfiguration" ts="1345645873946" public="false" component="wcf.column-layout">
+        <uuid>66187947-34e5-4989-98a6-cf302b3bdb07</uuid>
+        <purpose name="pagelet"/>
+        <inputs>
+            <entry key="timeRange" data-type="wcf:TimeRange"/>
+            <entry key="selectedUser" data-type="administration_tooling_twitter_common:User" usage="internal">
+                <null-rv/>
+            </entry>
+        </inputs>
+        <flow/>
+        <config/>
+        <window id="3" view="nested">
+            <size/>
+            <config>
+                <property name="align">
+                    <enum value="right"/>
+                </property>
+                <property name="valign">
+                    <enum value="middle"/>
+                </property>
+                <property name="hweight">
+                    <integer value="1"/>
+                </property>
+                <property name="vweight">
+                    <integer value="0"/>
+                </property>
+            </config>
+            <view id="nested" display-name="subscribe" ts="1345645873915" public="false" component="wcf.input.button">
+                <inputs>
+                    <entry key="selectedUser" data-type="administration_tooling_twitter_common:User"/>
+                </inputs>
+                <flow>
+                    <on action="selection">
+                        <update>
+                            <context>
+                                <entry key="ss">
+                                    <function-rv id="system:administration_tooling_twitter_common.3">
+                                        <context-rv input-key="selectedUser" path="id"/>
+                                    </function-rv>
+                                </entry>
+                            </context>
+                        </update>
+                    </on>
+                </flow>
+                <config>
+                    <property name="label">
+                        <string xml:space="preserve">Follow User --></string>
+                    </property>
+                </config>
+            </view>
+        </window>
+        <window id="0" view="nested">
+            <size/>
+            <config>
+                <property name="row">
+                    <integer value="1"/>
+                </property>
+                <property name="align">
+                    <enum value="stretch"/>
+                </property>
+                <property name="valign">
+                    <enum value="stretch"/>
+                </property>
+                <property name="hweight">
+                    <integer value="1"/>
+                </property>
+                <property name="vweight">
+                    <integer value="1"/>
+                </property>
+            </config>
+            <view id="nested" display-name="nvFollowers)" ts="1345644426407" public="false" component="wcf.table.row-table">
+                <inputs>
+                    <entry key="selectedUser" data-type="administration_tooling_twitter_common:User" usage="optional" implicit="true"/>
+                </inputs>
+                <flow>
+                    <on action="rowSelection">
+                        <generated-context output-key="selectedRow" custom-key="selectedUser"/>
+                        <update/>
+                    </on>
+                </flow>
+                <config>
+                    <property name="rows">
+                        <function-rv id="system:administration_tooling_twitter_common.1"/>
+                    </property>
+                    <property name="columns">
+                        <list-value>
+                            <object>
+                                <property name="value">
+                                    <context-rv input-key="currentRow" path="name"/>
+                                </property>
+                                <property name="id">
+                                    <string xml:space="preserve">c_0</string>
+                                </property>
+                                <property name="cellAlignment">
+                                    <object>
+                                        <property name="horizontal">
+                                            <enum value="left"/>
+                                        </property>
+                                    </object>
+                                </property>
+                            </object>
+                            <object>
+                                <property name="value">
+                                    <context-rv input-key="currentRow" path="screenName"/>
+                                </property>
+                                <property name="id">
+                                    <string xml:space="preserve">c_1</string>
+                                </property>
+                                <property name="cellAlignment">
+                                    <object>
+                                        <property name="horizontal">
+                                            <enum value="left"/>
+                                        </property>
+                                    </object>
+                                </property>
+                            </object>
+                        </list-value>
+                    </property>
+                    <property name="selectionConfiguration">
+                        <object>
+                            <property name="autoSelectPolicy">
+                                <enum value="none"/>
+                            </property>
+                        </object>
+                    </property>
+                </config>
+            </view>
+        </window>
+        <window id="2" view="nested">
+            <size/>
+            <config>
+                <property name="column">
+                    <integer value="1"/>
+                </property>
+                <property name="align">
+                    <enum value="stretch"/>
+                </property>
+                <property name="valign">
+                    <enum value="stretch"/>
+                </property>
+                <property name="hweight">
+                    <integer value="1"/>
+                </property>
+                <property name="vweight">
+                    <integer value="1"/>
+                </property>
+            </config>
+            <view id="nested" display-name="Following)" ts="1345644174068" public="false" component="wcf.table.row-table">
+                <flow/>
+                <config>
+                    <property name="rows">
+                        <function-rv id="system:administration_tooling_twitter_common.2"/>
+                    </property>
+                    <property name="columns">
+                        <list-value>
+                            <object>
+                                <property name="value">
+                                    <context-rv input-key="currentRow" path="name"/>
+                                </property>
+                                <property name="id">
+                                    <string xml:space="preserve">c_0</string>
+                                </property>
+                                <property name="cellAlignment">
+                                    <object>
+                                        <property name="horizontal">
+                                            <enum value="left"/>
+                                        </property>
+                                    </object>
+                                </property>
+                            </object>
+                            <object>
+                                <property name="value">
+                                    <context-rv input-key="currentRow" path="screenName"/>
+                                </property>
+                                <property name="id">
+                                    <string xml:space="preserve">c_1</string>
+                                </property>
+                                <property name="cellAlignment">
+                                    <object>
+                                        <property name="horizontal">
+                                            <enum value="left"/>
+                                        </property>
+                                    </object>
+                                </property>
+                            </object>
+                        </list-value>
+                    </property>
+                </config>
+            </view>
+        </window>
+    </composite-view>
+    <view id="13" display-name="TweetMessageInput" ts="1345645310273" public="false" primary-input-key="tweet" component="wcf.input.textarea">
+        <uuid>7e68a8a5-d1ed-40ad-ac2b-fb85edc3932e</uuid>
+        <purpose name="pagelet"/>
+        <inputs>
+            <entry key="tweet" data-type="wcf:String" usage="optional" implicit="true"/>
+        </inputs>
+        <generated-context output-key="value" custom-key="tweet"/>
+        <flow>
+            <on action="update">
+                <update/>
+            </on>
+        </flow>
+        <config>
+            <property name="rows">
+                <integer value="5"/>
+            </property>
+            <property name="maxChars">
+                <integer value="140"/>
+            </property>
+        </config>
+    </view>
+    <view id="14" display-name="TestTweetDialog" ts="1345645515630" component="wcf.form">
+        <uuid>e5e5974a-ebfb-4bd0-9b62-c9b18a51cdb4</uuid>
+        <purpose name="dialog"/>
+        <purpose name="page"/>
+        <purpose name="pagelet"/>
+        <inputs>
+            <entry key="tweet" data-type="wcf:String" usage="internal">
+                <null-rv/>
+            </entry>
+        </inputs>
+        <flow/>
+        <config>
+            <property name="view">
+                <view-ref value="system:administration_tooling_twitter.13"/>
+            </property>
+            <property name="actions">
+                <list-value>
+                    <object>
+                        <property name="text">
+                            <string xml:space="preserve">tweet</string>
+                        </property>
+                        <property name="reaction">
+                            <previous update="context">
+                                <context>
+                                    <entry key="hjk">
+                                        <function-rv id="system:administration_tooling_twitter.sendTweet">
+                                            <context-rv input-key="tweet"/>
+                                        </function-rv>
+                                    </entry>
+                                </context>
+                            </previous>
+                        </property>
+                    </object>
+                </list-value>
+            </property>
+        </config>
+    </view>
+    <script-function type="groovy" id="oAuthStep1" display-name="oAuthStep1" ts="1345628542632" public="false" output-type="administration_tooling_twitter:OauthContext" cache-results="true">
+        <uuid>9ddeda75-b775-4a13-a0e4-435066e4648f</uuid>
+    </script-function>
+    <script-function type="groovy" id="8" display-name="getCurrentToken" ts="1345639278271" public="false" output-type="wcf:String" cache-results="true">
+        <uuid>c4822ba0-81e4-4dbf-b4d5-5b50b090c216</uuid>
+    </script-function>
+    <script-function type="groovy" id="11" display-name="oAuthStep2" ts="1345639229908" public="false" output-type="wcf:Object" cache-results="true">
+        <uuid>f8336d68-7257-4b04-8867-640e3d58c12e</uuid>
+        <inputs>
+            <input name="oauthContext" type-name="administration_tooling_twitter:OauthContext"/>
+            <input name="pin" type-name="wcf:String"/>
+        </inputs>
+    </script-function>
+    <script-function type="groovy" id="sendTweet" display-name="sendTweet" ts="1345645322065" public="false" output-type="wcf:Object" cache-results="true">
+        <uuid>08d3e348-22eb-41f4-a2b5-975c53c049c6</uuid>
+        <inputs>
+            <input name="tweet" type-name="wcf:String"/>
+        </inputs>
+    </script-function>
+</module>
