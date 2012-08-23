@@ -74,12 +74,21 @@
 					<cartridge name="${cartridge.name}" version="${cartridge.version}" buildId="${build.id}" author="${cartridge.author}" foglightversion="5.0" classloadingstyle="local_first" type="user">
 		
 						<jarcomponent name="twitterAPI" ispublic="true" federateDeployType="ALWAYS_DEPLOY">
-											<fileset dir="lib/runtime" includes="twitter4j*.jar" />
+											<fileset dir="lib/runtime" includes="*.jar" />
 						</jarcomponent>
 						<monitoringpolicy name="Scripts" version="${cartridge.version}" file="${basedir}/src/scripts.xml" federateDeployType="ALWAYS_DEPLOY"/>
-								
+						
+						<dependency name="BitlySupport" version="1.0.0" match="LATEST" />
 					</cartridge>
 				</car>
+		
+		<car destdir="${dist.dir}" final="false" append="true">
+						<cartridge name="${cartridge.name}_complete" version="${cartridge.version}" buildId="${build.id}" author="${cartridge.author}" foglightversion="5.0" classloadingstyle="local_first" type="user">
+							</cartridge>
+							<fileset dir="${basedir}/dependencies">
+								<include name="**/*.car" />
+							</fileset>
+						</car>
 		
 	</target>
 	
@@ -117,6 +126,8 @@
 			</classpath>
 		</java>
 	</target>
+	
+				
 	<target name="reinstallCar" depends="car" description="Re Install Cartridge">
 		<antcall target="uninstallCar"/>
 		<antcall target="installCar"/>
