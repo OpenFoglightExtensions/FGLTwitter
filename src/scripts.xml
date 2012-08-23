@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <foglight-config version="1.0.3.0" exported-on="2012-08-22T12:46:23.141Z">
- <persistable-script name="getTwitterAccessToken">
-        <signature>
-            <return type="Object">
-                <description><![CDATA[The Twitter4J Access Token]]></description>
-            </return>
-        </signature>
-        <documentation>
-            <description><![CDATA[Will return the Twitter Acces Token for the stored OAuth Authentification!]]></description>
-        </documentation>
-        <annotation name="return_type">
-            <value><![CDATA[Object]]></value>
-        </annotation>
-        <body><![CDATA[
+	<persistable-script name="getTwitterAccessToken">
+		<signature>
+			<return type="Object">
+				<description><![CDATA[The Twitter4J Access Token]]></description>
+			</return>
+		</signature>
+		<documentation>
+			<description><![CDATA[Will return the Twitter Acces Token for the stored OAuth Authentification!]]></description>
+		</documentation>
+		<annotation name="return_type">
+			<value><![CDATA[Object]]></value>
+		</annotation>
+		<body><![CDATA[
 		import twitter4j.*
 import twitter4j.api.*
 import twitter4j.auth.*
@@ -30,20 +30,22 @@ if (key == null || token == null) return null
 else return new AccessToken(token,key)
 
 		]]></body>
-    </persistable-script>
-    <persistable-script name="getTwitterClient">
-        <signature>
-            <return type="Object">
-                <description><![CDATA[The Twitter4J Authenticated Client]]></description>
-            </return>
-        </signature>
-        <documentation>
-            <description><![CDATA[Will return the Twitter Acces Token for the stored OAuth Authentification!]]></description>
-        </documentation>
-        <annotation name="return_type">
-            <value><![CDATA[Object]]></value>
-        </annotation>
-        <body><![CDATA[
+	</persistable-script>
+
+
+	<persistable-script name="getTwitterClient">
+		<signature>
+			<return type="Object">
+				<description><![CDATA[The Twitter4J Authenticated Client]]></description>
+			</return>
+		</signature>
+		<documentation>
+			<description><![CDATA[Will return the Twitter Acces Token for the stored OAuth Authentification!]]></description>
+		</documentation>
+		<annotation name="return_type">
+			<value><![CDATA[Object]]></value>
+		</annotation>
+		<body><![CDATA[
 		import twitter4j.*
 import twitter4j.api.*
 import twitter4j.auth.*
@@ -63,5 +65,5 @@ Twitter twitter = factory.getInstance();
 
 return twitter;
 		]]></body>
-    </persistable-script>
+	</persistable-script>
 </foglight-config>
