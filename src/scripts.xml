@@ -66,4 +66,46 @@ Twitter twitter = factory.getInstance();
 return twitter;
 		]]></body>
 	</persistable-script>
+<persistable-script name="tweet">
+		<signature>
+		<arg name="message" type="String" optional="false">
+				<description>A BAsic Subject Argument</description>
+			</arg>
+	<return type="Object">
+				<description><![CDATA[The Tweet]]></description>
+			</return>
+		</signature>
+		<documentation>
+			<description><![CDATA[Will tweet using the stored Twitter Acces Token]]></description>
+		</documentation>
+		<annotation name="return_type">
+			<value><![CDATA[Object]]></value>
+		</annotation>
+		<body><![CDATA[
+	def s = args[1]
+	
+return getTwitterClient().updateStatus(s.size()>140?s[0..139]:s);
+		]]></body>
+	</persistable-script>
+	<persistable-script name="FGLTwitterAction">
+		<signature>
+			<arg name="Tweet" type="String" optional="false">
+				<description>The Tweet (max 140 characters)</description>
+			</arg>
+
+			<return type="String">
+				<description><![CDATA[This is a Test Result]]></description>
+			</return>
+		</signature>
+		<documentation>
+			<description><![CDATA[
+		This is a Test Action using a Groovy Scriptlet]]></description>
+		</documentation>
+
+<annotation name="action"></annotation>
+
+		<body><![CDATA[
+tweet(args[1])
+		]]></body>
+	</persistable-script>
 </foglight-config>
