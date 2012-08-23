@@ -82,6 +82,21 @@
           </objectInstance>
         </objectProperty>
       </objectInstance>
+      <objectInstance type='IDE_ExpGroup_CI' id='12'>
+        <stringProperty name='name' xml:space='preserve'>rules</stringProperty>
+        <objectProperty name='container'>
+          <objectReference refId='0' />
+        </objectProperty>
+        <objectProperty name='includes'>
+          <objectInstance type='IDE_CI_Rule' id='13'>
+            <stringProperty name='ci_id' xml:space='preserve'>/rule/84b8ed0d-c5f2-4620-97cf-8cc851ea99a5</stringProperty>
+            <objectProperty name='parent'>
+              <objectReference refId='12' />
+            </objectProperty>
+            <stringProperty name='name' xml:space='preserve'>Twitter All Events</stringProperty>
+          </objectInstance>
+        </objectProperty>
+      </objectInstance>
     </objectProperty>
     <stringProperty name='author' xml:space='preserve'>Stefan.Marx@quest.com</stringProperty>
   </objectInstance>

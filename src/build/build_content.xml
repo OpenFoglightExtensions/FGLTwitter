@@ -14,7 +14,8 @@
 				<wcf name="${cartridge.name}_wcf" version="${cartridge.version}">
 					<fileset dir="${basedir}/src" includes="wcf/**/*" />
 				</wcf>
-				
+				<monitoringpolicy name="rules" version="${cartridge.version}" file="${basedir}/src/xml/rules.xml" />
+
 			</cartridge>
 		</car>
 	</target>
