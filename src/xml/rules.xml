@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<foglight-config version="1.0.3.0" exported-on="2012-08-23T15:19:00.377Z">
+    <simple-rule id="84b8ed0d-c5f2-4620-97cf-8cc851ea99a5" name="Twitter All Events" comments="" is-external="true" help="" is-suspended="true" trigger="com.quest.nitro.service.rule.rule.Rule$TriggerType SYSTEM_EVENT" triggering-event="AlarmSystemEvent" trigger-without-data="false">
+        <firing_strategies/>
+        <expressions>
+            <expression name="alarmEvent"><![CDATA[@event]]></expression>
+        </expressions>
+        <messages/>
+        <effective-schedules/>
+        <blackout-schedules/>
+        <severities>
+            <unconditional-severity id="ff8081813952e9e5013954106c6c253a" level="-1" disabled="true">
+                <message name="SeverityMessage"><![CDATA[Rule @foglight_rule_name fired with @foglight_severity_level_name severity.]]></message>
+                <expressions/>
+                <messages/>
+                <fire-action-handlers/>
+                <exit-action-handlers/>
+            </unconditional-severity>
+            <conditional-severity id="ff8081813952e9e5013954106c6c2538" level="1">
+                <message name="SeverityMessage"><![CDATA[Rule @foglight_rule_name fired with @foglight_severity_level_name severity.]]></message>
+                <expressions>
+                    <expression name="url"><![CDATA[shortenUrl(@event.alarmLink)]]></expression>
+                    <expression name="msg"><![CDATA[def url = shortenUrl(@event.alarmLink)
+def message = @event.message
+def source = @event.sourceName
+def o = server.TopologyService.getObject(@event.topologyObjectID)
+
+def severity = @event.severityName
+
+def m = "$severity on $o.longName by $source ($url) : $message" as String
+
+
+return m]]></expression>
+                </expressions>
+                <messages/>
+                <fire-action-handlers>
+                    <action-handler id="ff8081813952e9e5013954106c6c2539" action="FGLTwitterAction" description="">
+                        <messages/>
+                        <variable-references>
+                            <variable-reference name="Tweet" variable-name="msg"/>
+                        </variable-references>
+                        <registry-value-references/>
+                    </action-handler>
+                </fire-action-handlers>
+                <exit-action-handlers/>
+                <condition><![CDATA[@event.get("change/value") == 0 && @event.get("severityLevel")==4]]></condition>
+            </conditional-severity>
+        </severities>
+    </simple-rule>
+</foglight-config>
