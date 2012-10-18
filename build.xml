@@ -71,7 +71,7 @@
 			</ant>
 		 
 		<car destdir="${dist.dir}" final="false" append="true">
-					<cartridge name="${cartridge.name}" version="${cartridge.version}" buildId="${build.id}" author="${cartridge.author}" foglightversion="5.0" classloadingstyle="local_first" type="user">
+					<cartridge name="${cartridge.name}" version="${cartridge.version}" buildId="${build.id}" author="${cartridge.author}" foglightversion="5.0"  type="user">
 		
 						<jarcomponent name="twitterAPI" ispublic="true" federateDeployType="ALWAYS_DEPLOY">
 											<fileset dir="lib/runtime" includes="*.jar" />
@@ -88,6 +88,9 @@
 							<fileset dir="${basedir}/dependencies">
 								<include name="**/*.car" />
 							</fileset>
+			<fileset dir="${basedir}/dist">
+				<include name="**/${cartridge.carfile}" />
+			</fileset>
 						</car>
 		
 	</target>

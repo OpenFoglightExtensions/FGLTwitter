@@ -56,7 +56,8 @@ import twitter4j.media.*
 import twitter4j.util.* 
 
 def token = getTwitterAccessToken()
-assert (token != null)
+//assert (token != null)
+if (token == null) return null;
 
 TwitterFactory factory = new TwitterFactory();
 Twitter twitter = factory.getInstance();

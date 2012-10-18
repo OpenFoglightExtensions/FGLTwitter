@@ -1,50 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<foglight-config version="1.0.3.0" exported-on="2012-08-23T15:19:00.325Z">
+<foglight-config version="1.0.3.0" exported-on="2012-08-31T15:05:52.704Z">
     <registry-variable name="Twitter.AppKey" value-class="java.lang.String">
         <values>
-            <topology-type-registry-value default-value="java.lang.String;JG0dCmb4yuQf8p5Y6T8Ww" id="ff8081813952e9e5013953c7615c24b8" variable-name="Twitter.AppKey" topology-type="TopologyObject">
+            <topology-type-registry-value default-value="java.lang.String;JG0dCmb4yuQf8p5Y6T8Ww" id="ff808181397cffd401397d365f7501f3" variable-name="Twitter.AppKey" topology-type="TopologyObject">
                 <performance-calendars/>
             </topology-type-registry-value>
         </values>
     </registry-variable>
     <registry-variable name="Twitter.AppSecret" value-class="java.lang.String">
         <values>
-            <topology-type-registry-value default-value="java.lang.String;kNRfB1gO4lvuABQuEuMNohpBwxIGg9kNFfX4ha4yx4" id="ff8081813952e9e5013953c7615d24ba" variable-name="Twitter.AppSecret" topology-type="TopologyObject">
+            <topology-type-registry-value default-value="java.lang.String;kNRfB1gO4lvuABQuEuMNohpBwxIGg9kNFfX4ha4yx4" id="ff808181397cffd401397d365f7501f5" variable-name="Twitter.AppSecret" topology-type="TopologyObject">
                 <performance-calendars/>
             </topology-type-registry-value>
         </values>
     </registry-variable>
     <registry-variable name="Twitter.ClientKey" value-class="java.lang.String">
-        <values>
-            <topology-type-registry-value default-value="java.lang.String;xpOCy9lvWPesVz02SbWfSaJdqtOVVLAATsAm8BavKo0" id="ff8081813952e9e5013953c7615e24bc" is-user-created="true" variable-name="Twitter.ClientKey" topology-type="TopologyObject">
-                <performance-calendars/>
-            </topology-type-registry-value>
-        </values>
+        <values/>
     </registry-variable>
     <registry-variable name="Twitter.ScreenName" value-class="java.lang.String">
-        <values>
-            <topology-type-registry-value default-value="java.lang.String;FoglightTestser" id="ff8081813952e9e5013953c7615f24be" variable-name="Twitter.ScreenName" topology-type="TopologyObject">
-                <performance-calendars/>
-            </topology-type-registry-value>
-        </values>
+        <values/>
     </registry-variable>
     <registry-variable name="Twitter.ClientToken" value-class="java.lang.String">
-        <values>
-            <topology-type-registry-value default-value="java.lang.String;773174725-eWiKbsHAI2S4ZdeDpkbzeVQWQe2A2cFvk4PhTMY" id="ff8081813952e9e5013953c7616024c0" is-user-created="true" variable-name="Twitter.ClientToken" topology-type="TopologyObject">
-                <performance-calendars/>
-            </topology-type-registry-value>
-        </values>
+        <values/>
     </registry-variable>
     <registry-variable name="bitly.token" value-class="java.lang.String">
         <values>
-            <topology-type-registry-value default-value="java.lang.String;R_e06e795bfc1531e02ffab5eeb310f0e7" id="ff8081813952e9e50139540c77aa251b" is-user-created="true" variable-name="bitly.token" topology-type="TopologyObject">
+            <topology-type-registry-value default-value="java.lang.String;R_e06e795bfc1531e02ffab5eeb310f0e7" id="ff808181397cffd401397d365f7801fa" is-user-created="true" variable-name="bitly.token" topology-type="TopologyObject">
                 <performance-calendars/>
             </topology-type-registry-value>
         </values>
     </registry-variable>
     <registry-variable name="bitly.user" value-class="java.lang.String">
         <values>
-            <topology-type-registry-value default-value="java.lang.String;fglbitly" id="ff8081813952e9e50139540c77ab251d" is-user-created="true" variable-name="bitly.user" topology-type="TopologyObject">
+            <topology-type-registry-value default-value="java.lang.String;fglbitly" id="ff808181397cffd401397d365f7901fc" is-user-created="true" variable-name="bitly.user" topology-type="TopologyObject">
                 <performance-calendars/>
             </topology-type-registry-value>
         </values>
